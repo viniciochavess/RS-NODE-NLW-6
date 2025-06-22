@@ -1,31 +1,29 @@
 import {
-  Column,
   Entity,
+  PrimaryGeneratedColumn,
+  Column,
   CreateDateColumn,
   UpdateDateColumn,
-  PrimaryGeneratedColumn,
   BaseEntity,
 } from "typeorm";
 
 @Entity("users")
-class User {
+export default class User extends BaseEntity {
   @PrimaryGeneratedColumn("uuid")
   id!: string;
 
-  @Column({ length: 100 })
+  @Column("varchar")
   name!: string;
 
-  @Column({ unique: true })
+  @Column("varchar")
   email!: string;
 
-  @Column({ default: false })
+  @Column("boolean")
   admin!: boolean;
 
-  @CreateDateColumn({ type: "timestamp" })
+  @CreateDateColumn()
   created_at!: Date;
 
-  @UpdateDateColumn({ type: "timestamp" })
+  @UpdateDateColumn()
   updated_at!: Date;
 }
-
-export default User;

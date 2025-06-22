@@ -1,4 +1,6 @@
 import AppDataSource from "../database";
 import User from "../database/entities/User";
 
-export const userRepository = AppDataSource.getRepository(User).extend({});
+const UserRepository = AppDataSource.getRepository(User).extend({});
+
+export default UserRepository;
