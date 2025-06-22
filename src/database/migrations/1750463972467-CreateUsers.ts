@@ -20,19 +20,19 @@ export class CreateUsers1750463972467 implements MigrationInterface {
             type: "varchar",
           },
           {
-            name: "isAdmin",
+            name: "admin",
             type: "boolean",
             default: false,
           },
           {
             name: "created_at",
             type: "timestamp",
-            default: "now()",
+            default: "CURRENT_TIMESTAMP",
           },
           {
             name: "updated_at",
             type: "timestamp",
-            default: "now()",
+            default: "CURRENT_TIMESTAMP",
           },
         ],
       })
@@ -40,6 +40,6 @@ export class CreateUsers1750463972467 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable("users")
+    await queryRunner.dropTable("users");
   }
 }

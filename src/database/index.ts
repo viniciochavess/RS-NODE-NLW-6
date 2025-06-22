@@ -4,10 +4,13 @@ const AppDataSource = new DataSource({
   type: "sqlite",
   database: "src/database/db.db",
   migrations: ["src/database/migrations/*.ts"],
+  entities:['src/database/entities/*.ts']
 });
 
 AppDataSource.initialize()
+
   .then(() => {
+    synchronize: true
     console.log("Data Source has been initialized!");
   })
   .catch((err) => {
@@ -15,4 +18,4 @@ AppDataSource.initialize()
   });
 
 export default AppDataSource;
-//
+
